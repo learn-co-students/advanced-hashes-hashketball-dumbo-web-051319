@@ -254,22 +254,22 @@ def player_with_longest_name
 	longest_name_player
 end
 
-def player_with_most_rebounds
-	most_rebounds = 0
-	most_rebounds_player = nil
+def player_with_most_steals
+	most_steals = 0
+	most_steals_player = nil
 
 	game_hash.each do |location, team_data|
 		team_data[:players].each do |player, stats|
-			if stats[:rebounds] > most_rebounds
-				most_rebounds = stats[:rebounds]
-				most_rebounds_player = player
+			if stats[:steals] > most_steals
+				most_steals = stats[:steals]
+				most_steals_player = player
 			end
 		end
 	end
 
-	most_rebounds_player
+	most_steals_player
 end
 
 def long_name_steals_a_ton?
-	player_with_most_rebounds ==	player_with_longest_name
+	player_with_longest_name == player_with_most_steals
 end
