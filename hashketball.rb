@@ -162,9 +162,43 @@ def team_names()
   hash.each do |team, find_name|
     find_name.each do |team_name, name_data|
       if team_name.to_s == "team_name"
-        teamArray = teamArray << name_data
+        teamArray << name_data.join
       end
     end
   end
   teamArray
+end
+
+def player_numbers(team_name)
+  jersey_number_array = []
+  hash = game_hash
+  switch = false
+  
+  hash.each do |team, team_data|
+    team_data.each do |find_players, team_data|
+      if find_players.to_s == "team_name" 
+        if team_data[0] == team_name 
+          switch = true
+        end
+      end
+      if find_players.to_s == "players" && switch == true
+        team_data.each do |players, find_jersey|
+          find_jersey.each do |player_data, jersey|
+            if player_data.to_s == "number"
+              jersey_number_array << jersey
+            end
+          end
+        end
+      end
+    end
+    switch = false
+  end
+  jersey_number_array
+end
+
+def player_stats(player_name)
+  hash = game_hash
+  statHash = {}
+  
+  
 end
