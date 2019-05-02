@@ -200,5 +200,22 @@ def player_stats(player_name)
   hash = game_hash
   statHash = {}
   
+  hash.each do |team, team_data|
+    team_data.each do |find_players, stat_data|
+      if find_players.to_s == "players"
+        stat_data.each do |players, find_stats|
+          if players == player_name
+            find_stats.each do |player_data, stats|
+              statHash[player_data] = stats
+            end
+          end
+        end
+      end
+    end
+  end
+  statHash
+end
+
+def big_shoe_rebounds
   
 end
