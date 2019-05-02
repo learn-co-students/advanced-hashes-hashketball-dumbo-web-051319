@@ -156,3 +156,15 @@ def team_colors(team_name)
 end
 
 def team_names()
+  hash = game_hash
+  teamArray = []
+  
+  hash.each do |team, find_name|
+    find_name.each do |team_name, name_data|
+      if team_name.to_s == "team_name"
+        teamArray = teamArray << name_data
+      end
+    end
+  end
+  teamArray
+end
