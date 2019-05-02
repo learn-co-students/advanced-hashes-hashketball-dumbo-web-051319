@@ -99,7 +99,6 @@ def num_points_scored(player_name)
           if players == player_name
             find_points.each do |player_data, points|
               if player_data.to_s == "points"
-                puts points
                 point_out = points
               end
             end
@@ -110,3 +109,50 @@ def num_points_scored(player_name)
   end
   point_out
 end
+
+def shoe_size (player_name)
+  hash = game_hash
+  shoe_out = 0
+  
+  hash.each do |team, team_data|
+    team_data.each do |find_players, stat_data|
+      if find_players.to_s == "players"
+        stat_data.each do |players, find_shoe|
+          if players == player_name
+            find_shoe.each do |player_data, shoe|
+              if player_data.to_s == "shoe"
+                shoe_out = shoe
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  shoe_out
+end
+
+def team_colors(team_name)
+  hash = game_hash
+  colors_out = []
+  switch = false
+
+        #home, team_name / colors / players / stats
+  hash.each do |team, team_data|  
+        #team_name/ colors / players, Charlotte / Purple / Jeff
+    team_data.each do |find_team_name, team_data|
+      if find_team_name.to_s == "team_name" 
+        if team_data[0] == team_name 
+          switch = true
+        end
+      end
+      if find_team_name.to_s == "colors" && switch == true
+        colors_out = team_data
+        switch = false
+      end
+    end
+  end
+  colors_out
+end
+
+def team_names()
