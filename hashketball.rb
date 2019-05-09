@@ -116,19 +116,49 @@ def game_hash
     }
   }
 end
+#function below is to put all my players and their stats in one list
+def players
+  game_hash[:home][:players].merge(game_hash[:away][:players])
+end
 
 def num_points_scored(player_name)
  player =  players.fetch(player_name)
  player.fetch(:points)
  # binding.pry
 end
-def players
-  game_hash[:home][:players].merge(game_hash[:away][:players])
+
+def shoe_size(player_name)
+ player =  players.fetch(player_name)
+ player.fetch(:shoe)
+ # binding.pry
 end
 
 
-# def bulk_tweet_shortener(tweets)
-#   tweets.each do |tweet|
-#     puts word_substituter(tweet)
-#   end
-# end
+
+#Received this error: NoMethodError: undefined method `find_the_team' from #<RSpec
+def find_the_team(team_name)
+  teams.find {|team| team.fetch(:team_name) == team_name}
+end
+
+#Received this error: NoMethodError teams undefined
+def teams
+  game_hash.values
+end
+
+def team_colors(team_name)
+  team = find_the_team(team_name)
+  team.fetch(:colors)
+end
+
+def team_names()
+end
+
+def player_numbers()
+end 
+
+def player_stats()
+end
+
+def big_shoe_rebounds ()
+
+end 
