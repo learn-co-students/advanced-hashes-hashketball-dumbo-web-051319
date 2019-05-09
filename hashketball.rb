@@ -72,7 +72,7 @@ def game_hash
           blocks: 7,
           slam_dunks: 2
         },
-        "Bismak Biyombo" => {
+        "Bismack Biyombo" => {
           number: 0,
           shoe: 16,
           points: 12,
@@ -117,10 +117,13 @@ def game_hash
   }
 end
 
-def num_points_scored(name)
-  game_hash.each do |name|
-  binding.pry
-  end
+def num_points_scored(player_name)
+ player =  players.fetch(player_name)
+ player.fetch(:points)
+ # binding.pry
+end
+def players
+  game_hash[:home][:players].merge(game_hash[:away][:players])
 end
 
 
