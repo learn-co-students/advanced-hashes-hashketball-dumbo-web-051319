@@ -141,27 +141,15 @@ end
 
 def player_numbers(team)
   number_array = []
-   if game_hash[:home][:team_name] == team
-     player_hash = game_hash[:home][:players]
-     player_hash.each do |player_name, stats|
-       stats.each do |type, num|
-         if type == :number
-       number_array.push(player_hash[player_name][:number])
-       end
-     end
-   end
-   elsif game_hash[:away][:team_name] == team
-     player_hash = game_hash[:away][:players]
-     player_hash.each do |player_name, stats|
-       stats.each do |type, num|
-         if type == :number
-       number_array.push(player_hash[player_name][:number])
-       end
-     end
-   end
- end
-   return number_array
- end
+    game_hash.each do |location, info|
+      if info[:team_name] == team
+        info[:players].each do |name, stat|
+        number_array << stat[:number]
+      end
+      end
+    end
+    return number_array
+  end
 
 def player_stats(name)
   player_name = all_players.fetch(name)
