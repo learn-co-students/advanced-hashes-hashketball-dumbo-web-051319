@@ -125,7 +125,6 @@ def num_points_scored(name)
       end
     end
   end
-  return stuff
 end
 
 def team_names
