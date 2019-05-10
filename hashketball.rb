@@ -121,7 +121,8 @@ playerpoints = 0
   stats[:players].collect do |player, data|
 
     if player == player_name
-      playerpoints << data[:points]
+      binding.pry 
+      playerpoints += data[:points]
     end 
   end 
  end 
