@@ -133,7 +133,7 @@ binding.pry
   end 
  end 
  binding.pry 
- return player_points
+player_points
 end 
 
 def team_names
