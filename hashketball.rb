@@ -122,7 +122,7 @@ playerpoints = 0
  game_hash.collect do |team, stats|
   stats[:players].collect do |player, data|
 
-    if player == player_name
+    if player == playername
        
       playerpoints = data.fetch[:points]
     end 
