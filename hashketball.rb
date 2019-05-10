@@ -128,6 +128,7 @@ playerpoints = 0
     end 
   end 
  end 
+ binding.pry 
  playerpoints
 end 
 
