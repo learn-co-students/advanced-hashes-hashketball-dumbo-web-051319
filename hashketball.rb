@@ -122,7 +122,6 @@ playerpoints = 0
 new_hash = game_hash[:home][:players].merge(game_hash[:away][:players])
 player_data = new_hash.fetch(playername)
 player_points = player_data.fetch(:points) 
-binding.pry 
  game_hash.collect do |team, stats|
   stats[:players].collect do |player, data|
 
@@ -132,7 +131,6 @@ binding.pry
     end 
   end 
  end 
- binding.pry 
 player_points
 end 
 
