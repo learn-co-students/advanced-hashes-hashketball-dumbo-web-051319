@@ -118,7 +118,6 @@ def game_hash
 end
   
 def num_points_scored(playername)
-binding.pry 
 #playerpoints = 0 
 new_hash = game_hash[:home][:players].merge(game_hash[:away][:players])
 player_data = new_hash.fetch(playername)
