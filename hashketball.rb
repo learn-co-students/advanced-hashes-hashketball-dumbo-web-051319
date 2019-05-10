@@ -115,18 +115,16 @@ def game_hash
   }
 end
   
-def num_points_scored(player_name)
-:players[:points] #playerpoints = 0 
- game_hash.collect do |team, stats|
-  stats[:players].collect do |player, data|
-
-    if player == player_name
-      playerpoints += data[:points]
-    end 
-  end 
- end 
- playerpoints
-end 
+def points_for(player, game)
+  game.each_value do |team, team_info|
+    team[:players].each do |name, player_hash|
+      if name == player
+        points = player_hash[:stats][:points]
+        puts "#{player} scored #{points} points."
+      end
+    end
+  end
+end
 
 def team_names
   hash = game_hash
