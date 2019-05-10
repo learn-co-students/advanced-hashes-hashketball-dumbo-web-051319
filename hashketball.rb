@@ -119,7 +119,7 @@ end
   
 def num_points_scored(playername)
 playerpoints = 0 
-game_hash = game_hash
+game_hash[:home][:players].merge(game_hash[:away][:players])
  game_hash.collect do |team, stats|
   stats[:players].collect do |player, data|
 
