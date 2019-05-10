@@ -118,19 +118,19 @@ def game_hash
 end
   
 def num_points_scored(playername)
-playerpoints = 0 
+#playerpoints = 0 
 new_hash = game_hash[:home][:players].merge(game_hash[:away][:players])
 player_data = new_hash.fetch(playername)
 player_points = player_data.fetch(:points) 
- game_hash.collect do |team, stats|
-  stats[:players].collect do |player, data|
+ #game_hash.collect do |team, stats|
+#   stats[:players].collect do |player, data|
 
-    if player == playername
+#     if player == playername
        
-      playerpoints = data.fetch(:points)
-    end 
-  end 
- end 
+#       playerpoints = data.fetch(:points)
+#     end 
+#   end 
+# end 
 player_points
 end 
 
