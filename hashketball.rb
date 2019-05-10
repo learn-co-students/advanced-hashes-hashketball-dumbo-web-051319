@@ -130,7 +130,7 @@ playerpoints = 0
  end 
  playerpoints
 end 
-
+da
 def team_names
   hash = game_hash
   array = []
