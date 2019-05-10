@@ -123,8 +123,8 @@ playerpoints = 0
   stats[:players].collect do |player, data|
 
     if player == player_name
-      binding.pry 
-      playerpoints = data[:points]
+       
+      playerpoints = data.fetch[:points]
     end 
   end 
  end 
