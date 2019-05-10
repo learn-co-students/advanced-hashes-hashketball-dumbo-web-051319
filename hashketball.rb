@@ -118,6 +118,7 @@ def game_hash
 end
 
 def num_points_scored(players_name)
+    binding.pry 
     game_hash.each do |location, team_data|
         team_data.each do |attribute, data|
             if data.include?(players_name)
