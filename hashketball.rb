@@ -135,9 +135,13 @@ player_points
 end 
 
 def shoe_size(name)
+new_hash = game_hash[:home][:players].merge(game_hash[:away][:players])
+player_data = new_hash.fetch(playername)
+player_points = player_data.fetch(:shoe) 
   find_shoe = players.find {|player| player.fetch(:player_name) == name }
   find_shoe.fetch(:shoe)
 end 
+
 
 
 def team_names
