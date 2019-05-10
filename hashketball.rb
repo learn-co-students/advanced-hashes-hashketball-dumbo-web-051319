@@ -124,7 +124,7 @@ playerpoints = 0
 
     if player == playername
        
-      playerpoints = data.fetch[:points]
+      playerpoints = data.fetch(:points)
     end 
   end 
  end 
