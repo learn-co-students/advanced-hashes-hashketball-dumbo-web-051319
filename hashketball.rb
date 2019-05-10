@@ -124,7 +124,7 @@ playerpoints = 0
 
     if player == player_name
       binding.pry 
-      playerpoints += data[:points]
+      playerpoints = data[:points]
     end 
   end 
  end 
