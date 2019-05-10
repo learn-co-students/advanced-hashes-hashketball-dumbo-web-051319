@@ -117,6 +117,7 @@ end
   
 def num_points_scored(name)
   hash = game_hash
+  array = []
   hash.each do |location, info| 
     info.each do |attribute, stuff| 
       if stuff.include?(name) 
@@ -124,6 +125,7 @@ def num_points_scored(name)
       end
     end
   end
+  return array
 end
 
 def team_names
