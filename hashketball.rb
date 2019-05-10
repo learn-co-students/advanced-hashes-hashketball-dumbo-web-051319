@@ -133,12 +133,11 @@ def shoe_size(player_name)
  # binding.pry
 end
 
-
-
 #Received this error: NoMethodError: undefined method `find_the_team' from #<RSpec
 def find_the_team(team_name)
   teams.find {|team| team.fetch(:team_name) == team_name}
 end
+
 
 #Received this error: NoMethodError teams undefined
 def teams
@@ -151,14 +150,30 @@ def team_colors(team_name)
 end
 
 def team_names()
+teams.collect{|team| team.fetch(:team_name)}
 end
 
-def player_numbers()
+#Failure: hashketball #player_numbers returns the player jersey numbers. Failure/Error: expect(player_numbers("Brooklyn Nets").sort).to eq(brooklyn_numbers). It wants to iterate through team_name rather than player_name
+
+def player_numbers(team_name)
+  find_the_team(team_name)[:players].collect{ |player_name, stats| stats[:number] }
+end
+
+#similar to find_the_team. Created find_the_player to get all the stats
+def find_the_player(name)
+  players.fetch(name)
+end
+
+def player_stats(player_name)
+ find_the_player(player_name)
+end
+#.max_by method - http://www.rubycuts.com/developer-resources/ruby-enumerable-module/max_by-method/
+#The max_by method takes an enumerable collection and returns the item that qualifies as the "maximum", much the way max does. The main difference is that it's much more efficient for complex comparisons. You must specify a block, and it will only be run once for each item in the collection. By contrast, max runs the block multiple times per item, as it compares various items to each other.
+
+def player_biggest_shoe_size
+  players.max_by{|player, stats| stats.fetch(:shoe)}[1]
 end 
 
-def player_stats()
-end
-
-def big_shoe_rebounds ()
-
+def big_shoe_rebounds
+  player_biggest_shoe_size.fetch(:rebounds)
 end 
