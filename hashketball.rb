@@ -117,7 +117,7 @@ def game_hash
   }
 end
   
-def num_points_scored(player_name)
+def num_points_scored(playername)
 playerpoints = 0 
  game_hash.collect do |team, stats|
   stats[:players].collect do |player, data|
