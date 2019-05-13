@@ -1,5 +1,4 @@
 # Write your code here!
-require "pry"
 def game_hash
   {
     home:
@@ -170,4 +169,3 @@ def big_shoe_rebounds
   end
   return rebounds
 end
-binding.pry
